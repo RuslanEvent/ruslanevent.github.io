@@ -282,7 +282,6 @@ var Cafe = {
         params.user_hash = Cafe.userHash;
       }
       var invoiceSupported = true;
-      console.log("Make order")
       Cafe.toggleLoading(true);
       Cafe.apiRequest('makeOrder', params, function(result) {
         Cafe.toggleLoading(false);
