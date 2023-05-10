@@ -2,6 +2,7 @@ from typing import Optional
 from telegram import Bot, LabeledPrice
 
 from fastapi import FastAPI
+from fastapi.middleware.cors import CORSMiddleware
 from pydantic import BaseModel
 
 INVOICE_TOKEN = '371317599:TEST:1683704970035'
@@ -100,6 +101,13 @@ goods = [
 
 
 app = FastAPI()
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
 
 @app.post('/api/invoice')
 async def createInvoice(order: Order):
