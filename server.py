@@ -122,7 +122,7 @@ async def createInvoice(order: Order):
         prices=prices
     )
 
-    return {'url': url}
+    return {'url': url, 'ok': True}
 
 
 def create_labeled_price(order_item: dict):
