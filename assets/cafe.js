@@ -28,6 +28,8 @@ var Cafe = {
       Cafe.showStatus('Cafe is temporarily closed');
       return;
     }
+    Cafe.userId = Telegram.WebApp.initDataUnsafe.user.id;
+    Cafe.userHash = Telegram.WebApp.initDataUnsafe.hash;
     $('.js-item-lottie').on('click', Cafe.eLottieClicked);
     $('.js-item-incr-btn').on('click', Cafe.eIncrClicked);
     $('.js-item-decr-btn').on('click', Cafe.eDecrClicked);
