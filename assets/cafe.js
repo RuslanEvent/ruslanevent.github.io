@@ -271,17 +271,11 @@ var Cafe = {
         order_data: Cafe.getOrderData(),
         comment: comment
       };
-      if (Cafe.mode) {
-        params.mode = Cafe.mode;
-      }
       if (Cafe.userId && Cafe.userHash) {
         params.user_id = Cafe.userId;
         params.user_hash = Cafe.userHash;
       } z
       var invoiceSupported = true;
-      if (invoiceSupported) {
-        params.invoice = 1;
-      }
       Cafe.toggleLoading(true);
       Cafe.apiRequest('makeOrder', params, function(result) {
         Cafe.toggleLoading(false);
