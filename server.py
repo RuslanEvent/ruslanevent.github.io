@@ -101,7 +101,7 @@ goods = [
 
 app = FastAPI()
 
-@app.get('api/invoice')
+@app.post('/api/invoice')
 async def createInvoice(order: Order):
     bot = Bot('5838841823:AAGUMz01lYyPqVBsTO-Xx9jvvDw7xcWD8Fo')
     prices = map(create_labeled_price, order.order_data)
