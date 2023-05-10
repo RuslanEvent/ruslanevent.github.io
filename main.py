@@ -1,16 +1,11 @@
-# This is a sample Python script.
-
-# Press ⌃R to execute it or replace it with your code.
-# Press Double ⇧ to search everywhere for classes, files, tool windows, actions, and settings.
+from telegram import Update, InlineKeyboardMarkup, InlineKeyboardButton
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
 
 
-def print_hi(name):
-    # Use a breakpoint in the code line below to debug your script.
-    print(f'Hi, {name}')  # Press ⌘F8 to toggle the breakpoint.
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    update.message.reply_invoice()
+    await update.message.reply_text("Let's make an order!", reply_markup=InlineKeyboardMarkup([[InlineKeyboardButton(web_app='https://ruslanevent.github.io')]]))
 
 
-# Press the green button in the gutter to run the script.
-if __name__ == '__main__':
-    print_hi('PyCharm')
-
-# See PyCharm help at https://www.jetbrains.com/help/pycharm/
+app = ApplicationBuilder().token('5838841823:AAGUMz01lYyPqVBsTO-Xx9jvvDw7xcWD8Fo').build()
+app.run_polling()
