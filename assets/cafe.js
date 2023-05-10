@@ -8,6 +8,8 @@ var Cafe = {
   canPay: false,
   modeOrder: false,
   totalPrice: 0,
+  isLoading: false,
+  isClosed: false,
 
   init: function(options) {
     Telegram.WebApp.ready();
@@ -262,6 +264,7 @@ var Cafe = {
     Cafe.updateTotalPrice();
   },
   mainBtnClicked: function() {
+    console.log('Main button clicked', 'Can pay :' + Cafe.canPay, 'isLoading: ' + Cafe.isLoading, 'isClosed: ' + Cafe.isClosed)
     if (!Cafe.canPay || Cafe.isLoading || Cafe.isClosed) {
       return false;
     }
