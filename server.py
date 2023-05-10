@@ -112,7 +112,7 @@ app.add_middleware(
 @app.post('/api/invoice')
 async def createInvoice(order: Order):
     bot = Bot('5838841823:AAGUMz01lYyPqVBsTO-Xx9jvvDw7xcWD8Fo')
-    prices = map(create_labeled_price, order.order_data)
+    prices = list(map(create_labeled_price, order.order_data))
     url = await bot.create_invoice_link(
         title='Оплатить заказ', 
         description='Оплатить заказ в Barbucks', 
@@ -126,7 +126,7 @@ async def createInvoice(order: Order):
 
 
 def create_labeled_price(order_item: dict):
-    found_goods = filter(lambda x: x['id'] == order_item['id'], goods)
+    found_goods = list(filter(lambda x: x['id'] == order_item['id'], goods))
     if len(found_goods) == 0:
         raise Exception('Good not found')
     found_good = found_goods[0]
