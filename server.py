@@ -132,5 +132,5 @@ def create_labeled_price(order_item: dict):
     found_good = found_goods[0]
     return LabeledPrice(
         label=found_good['name'],
-        amount=found_good['price'] * order_item['count']
+        amount=found_good['price'] * order_item['count'] * 11450
     )
