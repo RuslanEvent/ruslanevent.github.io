@@ -268,6 +268,7 @@ var Cafe = {
     if (!Cafe.canPay || Cafe.isLoading || Cafe.isClosed) {
       return false;
     }
+    
     if (Cafe.modeOrder) {
       var comment = $('.js-order-comment-field').val();
       var params = {
@@ -277,7 +278,7 @@ var Cafe = {
       if (Cafe.userId && Cafe.userHash) {
         params.user_id = Cafe.userId;
         params.user_hash = Cafe.userHash;
-      } z
+      }
       var invoiceSupported = true;
       console.log("Make order")
       Cafe.toggleLoading(true);
