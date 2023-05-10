@@ -287,11 +287,7 @@ var Cafe = {
       Cafe.apiRequest('makeOrder', params, function(result) {
         Cafe.toggleLoading(false);
         if (result.ok) {
-          if (Cafe.mode == 'inline') {
-            Telegram.WebApp.switchInlineQuery('#' + result.order_id);
-          } else if (Cafe.mode == 'link') {
-            Telegram.WebApp.switchInlineQuery('#' + result.order_id, ['users', 'groups']);
-          } else if (invoiceSupported) {
+          if (invoiceSupported) {
             Telegram.WebApp.openInvoice(result.url, function(status) {
               if (status == 'paid') {
                 Telegram.WebApp.close();
