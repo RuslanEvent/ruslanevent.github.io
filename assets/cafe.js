@@ -285,7 +285,7 @@ var Cafe = {
           } else if (Cafe.mode == 'link') {
             Telegram.WebApp.switchInlineQuery('#' + result.order_id, ['users', 'groups']);
           } else if (invoiceSupported) {
-            Telegram.WebApp.openInvoice(result.invoice_url, function(status) {
+            Telegram.WebApp.openInvoice(result.url, function(status) {
               if (status == 'paid') {
                 Telegram.WebApp.close();
               } else if (status == 'failed') {
