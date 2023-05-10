@@ -212,7 +212,7 @@ var Cafe = {
         order_data.push({id: id, count: count});
       }
     });
-    return JSON.stringify(order_data);
+    return order_data;
   },
   toggleMode: function(mode_order) {
     Cafe.modeOrder = mode_order;
